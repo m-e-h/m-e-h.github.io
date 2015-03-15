@@ -1,3 +1,8 @@
+---
+layout: post
+title: Posted
+---
+
 Post Try
 
 Reiciendis magnam, tenetur ante, nemo officiis soluta, officiis nam fuga nostrud cum minima nibh eos eligendi? Metus laudantium exercitationem magnis inventore habitasse lorem cupiditate! Convallis ea id blanditiis cumque sapien, nam facere, curabitur elit fuga? Laboriosam nonummy minim rutrum. Labore potenti malesuada. Laboris nulla venenatis voluptates fermentum luctus voluptatum molestias laoreet lacus cursus labore. Blandit praesent, veniam rhoncus cupidatat nunc blanditiis quia dolorem. Consequat. Perspiciatis? Nobis! Facilisi tempore omnis provident dolores suscipit, per iste, viverra delectus culpa ut alias dolorum diamlorem, porttitor facilisis libero, tempor quibusdam aenean vero, nullam atque platea phasellus labore cum ac ullamco. Vitae earum, aliquid officia.
