@@ -1,71 +1,33 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+{% include header.html %}
 
-    <meta name="author" content="{{ site.name }}" />
-    <meta name="description" content="{{ site.description }}">
+{% if site.layout == 'stacked' %}
+  <div class="container-lg py-6 p-responsive text-center">
+    {% include masthead.html metadata=false %}
 
-        <!-- Add to homescreen for Chrome on Android -->
-    <link rel="shortcut icon" href="{{ site.baseurl }}/images/touch/icon-128x128.png">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
-    <link rel="apple-touch-icon-precomposed" href="{{ site.baseurl }}/apple-touch-icon-precomposed.png">
-
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="{{ site.baseurl }}/images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#3372DF">
-
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <link href='http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
-
-    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
-  </head>
-
-  <body>
-    <header class="app-bar promote-layer">
-      <div class="app-bar-container">
-        <button class="menu"><img src="{{ site.baseurl }}/images/hamburger.svg" alt="Menu"></button>
-        <h1 class="logo"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-        <section class="app-bar-actions">
-        <!-- Put App Bar Buttons Here -->
-        </section>
-      </div>
-    </header>
-
-    <nav class="navdrawer-container promote-layer">
-      <h4>Navigation</h4>
-      <ul>
-        <li><a href="{{ site.baseurl }}/">Blog</a></li>
-        <li><a href="{{ site.baseurl }}/about">About</a></li>
-      </ul>
-    </nav>
-
-    <main>
+    <div class="container-md f4 text-left border rounded-2 bg-white p-3 p-sm-5 mt-6">
+      <p class="f5"><a href="/" class="d-flex flex-items-center">{% octicon chevron-left height:16 class:"mr-2 v-align-middle" fill:#0366d6 aria-label:Home %}Home</a></p>
+      <h1 class="f00-light lh-condensed mb-5">{{ page.title }}</h1>
       {{ content }}
-    </main>
+    </div>
+  </div>
+{% else %}
+  <div class="d-md-flex height-full {% unless site.style == 'dark' %}border-md-bottom{% endunless %}">
+    <div class="flex-self-stretch {% if site.style == 'dark' %}bg-gray-dark{% else %}border-md-right border-gray-light bg-white{% endif %} col-md-5 col-lg-4 col-xl-3 px-4 px-md-6 px-lg-7 py-6">
+      {% include masthead.html metadata=true %}
+    </div>
 
-        <footer class="footer">
-          {% include svg-icons.html %}
-        </footer>
-    <!-- build:js scripts/main.min.js -->
-    <script src="{{ site.baseurl }}/scripts/main.js"></script>
-    <!-- endbuild -->
+    <div class="col-md-7 col-lg-8 col-xl-9 px-4 py-6 px-lg-7 border-top border-md-top-0 bg-gray-light" {% if site.style == 'dark' %}style="background-color: #2f363d !important"{% endif %}>
+      <div class="mx-auto" style="max-width: 900px;">
+        <div class="f4 {% if site.style == 'dark' %}text-white{% endif %} mb-6">
+          <div class="f4 {% if site.style == 'dark' %}text-white{% endif %}">
+            <p class="f5"><a href="{{ site.url }}{{ site.baseurl | append:'/' }}" class="d-flex flex-items-center {% if site.style == 'dark' %}text-white{% endif %}">{% octicon chevron-left height:16 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:Home %}Home</a></p>
+            <h1 class="f00-light lh-condensed mb-5">{{ page.title }}</h1>
+            {{ content }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-    {% include analytics.html %}
-    <!-- Built with love using Web Starter Kit -->
-  </body>
-</html>
+{% include footer.html %}
